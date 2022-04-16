@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     private Rigidbody2D _rb;
     [SerializeField] private float _jumpForce;
@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private SpriteRenderer _playerSprite;
     private SpriteRenderer _swordArcSprite;
     private PlayerAnimation _playerAnim;
+
+    public int Health { get; set; }
 
     void Start()
     {
@@ -121,6 +123,11 @@ public class Player : MonoBehaviour
             _swordArcSprite.transform.localPosition = newPos;
 
         }
+    }
+
+    public void Damage()
+    {
+        Debug.Log("Player Damage");
     }
 
     IEnumerator ResetJumpRoutine()

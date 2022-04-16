@@ -17,8 +17,8 @@ TagManager:
   - Ground
   - Player
   - Sword
-  - 
-  - 
+  - Enemy
+  - EnemyAttack
   - 
   - 
   - 
