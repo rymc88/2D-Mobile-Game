@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int health;
     [SerializeField] protected float speed;
     [SerializeField] protected int gem;
+    [SerializeField] protected GameObject gemPrefab;
     [SerializeField] protected Transform [] waypoints;
     [SerializeField] protected int targetID;
 
