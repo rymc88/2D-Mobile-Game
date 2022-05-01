@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IDamageable
     private SpriteRenderer _playerSprite;
     private SpriteRenderer _swordArcSprite;
     private PlayerAnimation _playerAnim;
-    [SerializeField] private int _gems;
+    public int gems;
 
     public int Health { get; set; }
 
@@ -133,7 +133,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void AddGems(int amount)
     {
-        _gems += amount;
+        gems += amount;
     }
 
     IEnumerator ResetJumpRoutine()
