@@ -20,10 +20,16 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] private Text _playerGemCountText;
+    [SerializeField] private Image _selectionImg;
 
     public void OpenShop(int gemCount)
     {
         _playerGemCountText.text = "" + gemCount + " G";
+    }
+
+    public void UpdateShopSelection(int yPos)
+    {
+        _selectionImg.rectTransform.anchoredPosition = new Vector2(_selectionImg.rectTransform.anchoredPosition.x, yPos);
     }
 
     private void Awake()

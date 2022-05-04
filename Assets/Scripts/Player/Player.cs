@@ -136,6 +136,11 @@ public class Player : MonoBehaviour, IDamageable
         gems += amount;
     }
 
+    public void SubtractGems(int amount)
+    {
+        gems -= amount;
+    }
+
     IEnumerator ResetJumpRoutine()
     {
         _resetJump = true;
