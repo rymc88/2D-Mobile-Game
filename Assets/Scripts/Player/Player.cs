@@ -24,6 +24,7 @@ public class Player : MonoBehaviour, IDamageable
         _playerSprite = GetComponentInChildren<SpriteRenderer>();
         _swordArcSprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
         _playerAnim = GetComponent<PlayerAnimation>();
+        Health = 4;
 
         if(_playerAnim == null)
         {
@@ -128,17 +129,31 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Damage()
     {
+        if(Health < 1)
+        {
+            return;
+        }
+
         Debug.Log("Player Damage");
+        Health--;
+        UIManager.Instance.UpdateLives(Health);
+
+        if(Health < 1)
+        {
+            _playerAnim.Death();
+        }
     }
 
     public void AddGems(int amount)
     {
         gems += amount;
+        UIManager.Instance.UpdateGemCount(gems);
     }
 
     public void SubtractGems(int amount)
     {
         gems -= amount;
+        UIManager.Instance.UpdateGemCount(gems);
     }
 
     IEnumerator ResetJumpRoutine()

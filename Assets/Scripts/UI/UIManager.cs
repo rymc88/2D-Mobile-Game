@@ -21,6 +21,32 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text _playerGemCountText;
     [SerializeField] private Image _selectionImg;
+    [SerializeField] private Text _gemCount;
+    [SerializeField] private Image [] _healthBars;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+    public void UpdateLives (int livesRemaining)
+    {
+        for (int i = 0; i <= livesRemaining; i++)
+        {
+            //do nothing til we hit max
+            if (i == livesRemaining)
+            {
+                //hide this health bar
+                _healthBars[i].enabled = false;
+            }
+        }
+      
+    }
+
+    public void UpdateGemCount(int count)
+    {
+        _gemCount.text = "" + count;
+    }
 
     public void OpenShop(int gemCount)
     {
@@ -32,8 +58,5 @@ public class UIManager : MonoBehaviour
         _selectionImg.rectTransform.anchoredPosition = new Vector2(_selectionImg.rectTransform.anchoredPosition.x, yPos);
     }
 
-    private void Awake()
-    {
-        _instance = this;
-    }
+    
 }
